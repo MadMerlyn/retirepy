@@ -17,7 +17,7 @@ def Invest(principle, reg_payments, rate, **period):
     elif 'months' in period:
         period = period['months']+1
     else:
-        raise 'You did not provide an appropriate period range!'
+        period = 361
 
     results = []
     for t in range(period):
@@ -48,5 +48,6 @@ if __name__ == '__main__':
     principle = int(input('Enter starting principle: '))
     payment = int(input('Enter monthly payments: '))
     rate = float(input('Enter expected APR: '))
+    period = input('Enter amount of time "months=36" or "years=30":')
 
-    Invest(principle, payment, rate)
+    Invest(principle, payment, rate, period)
